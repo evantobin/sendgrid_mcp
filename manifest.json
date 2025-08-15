@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/dxt/main/dist/dxt-manifest.schema.json",
+  "dxt_version": "0.1",
+  "name": "sendgrid-dxt",
+  "display_name": "SendGrid DXT",
+  "version": "0.1.0",
+  "description": "An MCP extension to send emails using the SendGrid API.",
+  "author": {
+    "name": "Your Name"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "SENDGRID_API_KEY": "${user_config.sendgrid_api_key}",
+        "FROM_EMAIL": "${user_config.from_email}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "sendEmail",
+      "description": "Sends an email using the SendGrid API."
+    }
+  ],
+  "user_config": {
+    "sendgrid_api_key": {
+      "type": "string",
+      "title": "SendGrid API Key",
+      "description": "Your SendGrid API key.",
+      "sensitive": true,
+      "required": true
+    },
+    "from_email": {
+      "type": "string",
+      "title": "From Email",
+      "description": "The email address to send emails from.",
+      "required": true
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=16.0.0"
+    }
+  }
+}
