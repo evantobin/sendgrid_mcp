@@ -98,3 +98,23 @@ If you prefer not to install the DXT file, you can configure the server to run d
 4.  **Save the settings and restart Cline.**
 
 The server will now be managed by Cline and will start automatically.
+
+## Manual Cline Desktop Configuration (JSON)
+
+Alternatively, you can add the following JSON object to your `cline_mcp_settings.json` file:
+
+```json
+{
+  "name": "SendGrid MCP Server",
+  "command": "npx",
+  "args": [
+    "sendgrid-mcp-server"
+  ],
+  "env": {
+    "SENDGRID_API_KEY": "YOUR_SENDGRID_API_KEY",
+    "FROM_EMAIL": "YOUR_FROM_EMAIL"
+  }
+}
+```
+
+Replace `"YOUR_SENDGRID_API_KEY"` and `"YOUR_FROM_EMAIL"` with your actual credentials.
