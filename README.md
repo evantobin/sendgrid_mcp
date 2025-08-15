@@ -1,8 +1,9 @@
 # SendGrid MCP Server
 
-This MCP Server provides a tool to send emails using the SendGrid API.
-
+[![smithery badge](https://smithery.ai/badge/@evantobin/sendgrid_mcp)](https://smithery.ai/server/@evantobin/sendgrid_mcp)
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=sendgrid&config=eyJjb21tYW5kIjoibnB4IHNlbmRncmlkLW1jcC1zZXJ2ZXIiLCJlbnYiOnsiU0VOREdSSURfQVBJX0tFWSI6IllPVVJfU0VOREdSSURfQVBJX0tFWSIsIkZST01fRU1BSUwiOiJZT1VSX0ZST01fRU1BSUwifX0%3D)
+
+This MCP Server provides a tool to send emails using the SendGrid API.
 
 ## Installation and Setup
 
