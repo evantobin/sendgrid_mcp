@@ -40,7 +40,8 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
           properties: {
             to: { type: "string", description: "The recipient's email address." },
             subject: { type: "string", description: "The subject of the email." },
-            body: { type: "string", description: "The body of the email." },
+            body: { type: "string", description: "The plain text body of the email." },
+            html: { type: "string", description: "The HTML body of the email." },
           },
           required: ["to", "subject", "body"],
         },
@@ -51,7 +52,7 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "sendEmail") {
-    const { to, subject, body } = request.params.arguments || {};
+    const { to, subject, body, html } = request.params.arguments || {};
 
     if (!to || !subject || !body) {
       throw new Error("Missing required parameters: to, subject, and body");
@@ -62,6 +63,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       from: FROM_EMAIL,
       subject,
       text: body,
+      html,
     };
 
     try {
