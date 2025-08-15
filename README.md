@@ -5,7 +5,7 @@ This Desktop Extension (DXT) provides a tool to send emails using the SendGrid A
 ## Setup
 
 1.  **Install the Extension:**
-    *   Download the `sendgrid-mcp-server.dxt` file.
+    *   Download the latest `sendgrid-mcp-server.dxt` file from the [GitHub Releases](https://github.com/evantobin/sendgrid_mcp/releases) tab.
     *   Open your DXT-compatible application (e.g., Claude for macOS/Windows).
     *   Install the extension by opening the `.dxt` file.
 
