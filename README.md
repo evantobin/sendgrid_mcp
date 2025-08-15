@@ -1,20 +1,90 @@
 # SendGrid MCP Server
 
 [![smithery badge](https://smithery.ai/badge/@evantobin/sendgrid_mcp)](https://smithery.ai/server/@evantobin/sendgrid_mcp)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=sendgrid&config=eyJjb21tYW5kIjoibnB4IHNlbmRncmlkLW1jcC1zZXJ2ZXIiLCJlbnYiOnsiU0VOREdSSURfQVBJX0tFWSI6IllPVVJfU0VOREdSSURfQVBJX0tFWSIsIkZST01fRU1BSUwiOiJZT1VSX0ZST01fRU1BSUwifX0%3D)
 
-This Desktop Extension (DXT) provides a tool to send emails using the SendGrid API.
+This MCP Server provides a tool to send emails using the SendGrid API.
 
-## Setup
+## Installation and Setup
+
+This server can be used with any DXT-compatible application or configured to run directly in your preferred IDE (Cursor, Cline, etc).
+
+### For Claude (as a DXT Extension)
 
 1.  **Install the Extension:**
     *   Download the latest `sendgrid-mcp-server.dxt` file from the [GitHub Releases](https://github.com/evantobin/sendgrid_mcp/releases) tab.
-    *   Open your DXT-compatible application (e.g., Claude for macOS/Windows).
-    *   Install the extension by opening the `.dxt` file.
+    *   Open Claude for macOS or Windows.
+    *   Install the extension by opening the downloaded `.dxt` file.
 
 2.  **Configure the Extension:**
     *   After installation, you will be prompted to configure the extension.
     *   **SendGrid API Key:** Enter your SendGrid API key. This is a sensitive value and will be stored securely.
     *   **From Email:** Enter the email address you want to send emails from. This must be a verified sender in your SendGrid account.
+
+### For Cline Desktop (using NPX)
+
+You can configure the server to run directly with `npx` in Cline Desktop's MCP settings. There are two ways to do this:
+
+#### Option 1: Using the Cline Desktop UI
+
+1.  **Open Cline Desktop's settings.**
+2.  Navigate to the **MCP (Model Context Protocol)** section.
+3.  Click **"Add Server"** and configure it as follows:
+
+    *   **Server Name:** `SendGrid MCP Server` (or any name you prefer)
+    *   **Command:** `npx`
+    *   **Arguments:** `sendgrid-mcp-server`
+    *   **Environment Variables:**
+        *   `SENDGRID_API_KEY`: Your SendGrid API key.
+        *   `FROM_EMAIL`: The email address you want to send emails from.
+
+4.  **Save the settings and restart Cline.**
+
+The server will now be managed by Cline and will start automatically.
+
+#### Option 2: Manual JSON Configuration
+
+Alternatively, you can add the following JSON object to your `cline_mcp_settings.json` file:
+
+```json
+{
+  "mcpServers": {
+    "sendgrid": {
+      "command": "npx",
+      "args": [
+        "sendgrid-mcp-server"
+      ],
+      "env": {
+        "SENDGRID_API_KEY": "YOUR_API_KEY",
+        "FROM_EMAIL": "YOUR_VERIFIED_FROM_ADDRESS"
+      },
+      "transportType": "stdio"
+    }
+  }
+}
+```
+
+Replace `"YOUR_API_KEY"` and `"YOUR_VERIFIED_FROM_ADDRESS"` with your actual credentials.
+
+### For Cursor
+
+Add the following to your `mcp_servers.json` file:
+
+```json
+{
+"sendgrid": {
+  "command": "npx",
+  "args": [
+    "sendgrid-mcp-server"
+  ],
+  "env": {
+    "SENDGRID_API_KEY": "YOUR_SENDGRID_API_KEY",
+    "FROM_EMAIL": "YOUR_FROM_EMAIL"
+  }
+}}
+```
+
+Replace `"YOUR_SENDGRID_API_KEY"` and `"YOUR_FROM_EMAIL"` with your actual credentials.
 
 ## Usage
 
@@ -81,42 +151,3 @@ To package the extension into a `.dxt` file:
     ```
 
 This will create a `sendgrid-mcp-server.dxt` file in the project root.
-
-## Cline Desktop Configuration (using npx)
-
-If you prefer not to install the DXT file, you can configure the server to run directly with `npx` in Cline Desktop's MCP settings.
-
-1.  **Open Cline Desktop's settings.**
-2.  Navigate to the **MCP (Model Context Protocol)** section.
-3.  Click **"Add Server"** and configure it as follows:
-
-    *   **Server Name:** `SendGrid MCP Server` (or any name you prefer)
-    *   **Command:** `npx`
-    *   **Arguments:** `sendgrid-mcp-server`
-    *   **Environment Variables:**
-        *   `SENDGRID_API_KEY`: Your SendGrid API key.
-        *   `FROM_EMAIL`: The email address you want to send emails from.
-
-4.  **Save the settings and restart Cline.**
-
-The server will now be managed by Cline and will start automatically.
-
-## Manual Cline Desktop Configuration (JSON)
-
-Alternatively, you can add the following JSON object to your `cline_mcp_settings.json` file:
-
-```json
-{
-  "name": "SendGrid MCP Server",
-  "command": "npx",
-  "args": [
-    "sendgrid-mcp-server"
-  ],
-  "env": {
-    "SENDGRID_API_KEY": "YOUR_SENDGRID_API_KEY",
-    "FROM_EMAIL": "YOUR_FROM_EMAIL"
-  }
-}
-```
-
-Replace `"YOUR_SENDGRID_API_KEY"` and `"YOUR_FROM_EMAIL"` with your actual credentials.
