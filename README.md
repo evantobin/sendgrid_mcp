@@ -1,5 +1,7 @@
 # SendGrid MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@evantobin/sendgrid_mcp)](https://smithery.ai/server/@evantobin/sendgrid_mcp)
+
 This Desktop Extension (DXT) provides a tool to send emails using the SendGrid API.
 
 ## Setup
