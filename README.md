@@ -53,10 +53,16 @@ sendEmail(
 
 ### Running the Server
 
-To run the MCP server directly for testing:
+To run the MCP server directly for testing, you can use `npm start` or `npx`:
 
 ```bash
 npm start
+```
+
+Or, if you want to run it without cloning the repository:
+
+```bash
+npx sendgrid-dxt-server
 ```
 
 ### Packaging the Extension
