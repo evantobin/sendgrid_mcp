@@ -1,5 +1,5 @@
 {
-  "name": "sendgrid-dxt",
+  "name": "sendgrid-mcp-server",
   "version": "0.1.0",
   "description": "An MCP extension to send emails using the SendGrid API.",
   "main": "server/index.js",
@@ -8,7 +8,7 @@
     "start": "node server/index.js"
   },
   "bin": {
-    "sendgrid-dxt-server": "server/index.js"
+    "sendgrid-mcp-server": "server/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.3",

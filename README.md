@@ -1,11 +1,11 @@
-# SendGrid DXT
+# SendGrid MCP Server
 
 This Desktop Extension (DXT) provides a tool to send emails using the SendGrid API.
 
 ## Setup
 
 1.  **Install the Extension:**
-    *   Download the `sendgrid-dxt.dxt` file.
+    *   Download the `sendgrid-mcp-server.dxt` file.
     *   Open your DXT-compatible application (e.g., Claude for macOS/Windows).
     *   Install the extension by opening the `.dxt` file.
 
@@ -62,7 +62,7 @@ npm start
 Or, if you want to run it without cloning the repository:
 
 ```bash
-npx sendgrid-dxt-server
+npx sendgrid-mcp-server
 ```
 
 ### Packaging the Extension
@@ -78,7 +78,7 @@ To package the extension into a `.dxt` file:
     dxt pack
     ```
 
-This will create a `sendgrid-dxt.dxt` file in the project root.
+This will create a `sendgrid-mcp-server.dxt` file in the project root.
 
 ## Cline Desktop Configuration (using npx)
 
@@ -88,9 +88,9 @@ If you prefer not to install the DXT file, you can configure the server to run d
 2.  Navigate to the **MCP (Model Context Protocol)** section.
 3.  Click **"Add Server"** and configure it as follows:
 
-    *   **Server Name:** `SendGrid DXT` (or any name you prefer)
+    *   **Server Name:** `SendGrid MCP Server` (or any name you prefer)
     *   **Command:** `npx`
-    *   **Arguments:** `sendgrid-dxt-server`
+    *   **Arguments:** `sendgrid-mcp-server`
     *   **Environment Variables:**
         *   `SENDGRID_API_KEY`: Your SendGrid API key.
         *   `FROM_EMAIL`: The email address you want to send emails from.

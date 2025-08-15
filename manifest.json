@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/anthropics/dxt/main/dist/dxt-manifest.schema.json",
   "dxt_version": "0.1",
-  "name": "sendgrid-dxt",
-  "display_name": "SendGrid DXT",
+  "name": "sendgrid-mcp-server",
+  "display_name": "SendGrid MCP Server",
   "version": "0.1.0",
   "description": "An MCP extension to send emails using the SendGrid API.",
   "author": {
