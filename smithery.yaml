@@ -1,0 +1,24 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['server/index.js'], env: { SENDGRID_API_KEY: config.sendgridApiKey, FROM_EMAIL: config.fromEmail } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - sendgridApiKey
+      - fromEmail
+    properties:
+      sendgridApiKey:
+        type: string
+        description: SendGrid API key
+      fromEmail:
+        type: string
+        description: The verified 'from' email address
+  exampleConfig:
+    sendgridApiKey: SG.YOUR_SENDGRID_API_KEY
+    fromEmail: noreply@example.com
