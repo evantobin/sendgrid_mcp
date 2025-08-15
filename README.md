@@ -79,3 +79,22 @@ To package the extension into a `.dxt` file:
     ```
 
 This will create a `sendgrid-dxt.dxt` file in the project root.
+
+## Cline Desktop Configuration (using npx)
+
+If you prefer not to install the DXT file, you can configure the server to run directly with `npx` in Cline Desktop's MCP settings.
+
+1.  **Open Cline Desktop's settings.**
+2.  Navigate to the **MCP (Model Context Protocol)** section.
+3.  Click **"Add Server"** and configure it as follows:
+
+    *   **Server Name:** `SendGrid DXT` (or any name you prefer)
+    *   **Command:** `npx`
+    *   **Arguments:** `sendgrid-dxt-server`
+    *   **Environment Variables:**
+        *   `SENDGRID_API_KEY`: Your SendGrid API key.
+        *   `FROM_EMAIL`: The email address you want to send emails from.
+
+4.  **Save the settings and restart Cline.**
+
+The server will now be managed by Cline and will start automatically.
