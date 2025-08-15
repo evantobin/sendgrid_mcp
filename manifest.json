@@ -25,7 +25,33 @@
   "tools": [
     {
       "name": "sendEmail",
-      "description": "Sends an email using the SendGrid API."
+      "description": "Sends an email using the SendGrid API.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "The recipient's email address."
+          },
+          "subject": {
+            "type": "string",
+            "description": "The subject of the email."
+          },
+          "body": {
+            "type": "string",
+            "description": "The plain text body of the email."
+          },
+          "html": {
+            "type": "string",
+            "description": "The HTML body of the email."
+          }
+        },
+        "required": [
+          "to",
+          "subject",
+          "body"
+        ]
+      }
     }
   ],
   "user_config": {
