@@ -51,7 +51,12 @@ server.setRequestHandler(ListToolsRequestSchema, async (request) => {
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "sendEmail") {
-    const { to, subject, body } = request.params.input;
+    const { to, subject, body } = request.params.arguments || {};
+
+    if (!to || !subject || !body) {
+      throw new Error("Missing required parameters: to, subject, and body");
+    }
+
     const msg = {
       to,
       from: FROM_EMAIL,
